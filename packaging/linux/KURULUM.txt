@@ -1,0 +1,15 @@
+Silüet 2.0 — Linux
+
+Çalıştırmak için:
+  ./Siluet
+
+Uygulama menüsüne eklemek için (yönetici yetkisi gerekmez):
+  ./kur.sh            # ~/.local/share/Siluet altına kurar
+  ./kur.sh --kaldir   # kaldırır
+
+Uygulama açılmazsa sebebi şu dosyalarda yazar:
+  ~/.local/state/Siluet/hata.log
+  ~/.local/state/Siluet/cokme.log
+
+Not: X11 oturumunda "xcb-util-cursor" paketi gerekir (CachyOS/Arch: sudo pacman -S xcb-util-cursor).
+Wayland (KDE Plasma 6 varsayılanı) için ek paket gerekmez.

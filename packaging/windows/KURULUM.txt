@@ -1,0 +1,11 @@
+Silüet 2.0 — Windows
+
+Kurulum gerekmez. Klasörü istediğiniz yere (ör. Belgeler) çıkarın ve
+Siluet.exe dosyasını çalıştırın. Masaüstü kısayolu için exe'ye
+sağ tıklayıp "Gönder > Masaüstü (kısayol oluştur)" seçin.
+
+Klasördeki diğer dosyaları silmeyin; uygulama onlarla birlikte çalışır.
+
+Uygulama açılmazsa sebebi şu dosyalarda yazar:
+  %LOCALAPPDATA%\Siluet\hata.log
+  %LOCALAPPDATA%\Siluet\cokme.log

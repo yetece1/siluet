@@ -1,0 +1,7 @@
+openpyxl<4,>=3.1
+cryptography>=42
+PySide6>=6.6
+
+[test]
+pytest<10,>=8
+pytest-qt>=4.4

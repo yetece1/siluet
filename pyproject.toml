@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "siluet"
+version = "2.0.0"
+description = "Offline, structure-preserving anonymizer for Turkish telecom (HTS) Excel records"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Yusuf Tuncel" }]
+requires-python = ">=3.10"
+dependencies = ["openpyxl>=3.1,<4", "cryptography>=42", "PySide6>=6.6"]
+
+[project.urls]
+Homepage = "https://github.com/yetece1/siluet"
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10", "pytest-qt>=4.4"]
+
+[project.gui-scripts]
+siluet = "siluet.ui.app:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.setuptools.packages.find]
+include = ["siluet*"]
+
+
+[tool.setuptools.package-data]
+"siluet.ui" = ["assets/*.png", "assets/fonts/*"]

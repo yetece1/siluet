@@ -1,0 +1,2 @@
+[gui_scripts]
+siluet = siluet.ui.app:main
