@@ -87,8 +87,14 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           notes=$(awk '/^## /{n++} n==1' CHANGELOG.md)
-          gh release create "${GITHUB_REF_NAME}" artifacts/Siluet-windows.zip artifacts/Siluet-linux.tar.gz artifacts/SHA256SUMS.txt \
-            --title "Silüet ${GITHUB_REF_NAME}" --notes "$notes"
+          files="artifacts/Siluet-windows.zip artifacts/Siluet-linux.tar.gz artifacts/SHA256SUMS.txt"
+          # The release may already exist when it was created from the web page.
+          if gh release view "${GITHUB_REF_NAME}" >/dev/null 2>&1; then
+            gh release upload "${GITHUB_REF_NAME}" $files --clobber
+            gh release edit "${GITHUB_REF_NAME}" --title "Silüet ${GITHUB_REF_NAME}" --notes "$notes"
+          else
+            gh release create "${GITHUB_REF_NAME}" $files --title "Silüet ${GITHUB_REF_NAME}" --notes "$notes"
+          fi
 
   packages-branch:
     if: github.event_name == 'workflow_dispatch' && inputs.packages_branch
